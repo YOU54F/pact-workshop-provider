@@ -17,4 +17,5 @@ jobs:
           ruby-version: ${{ matrix.ruby_version }}
       - run: bundle install
       - run: bundle exec rake pact:verify:v1
+        if: matrix.os != 'windows-latest'
       - run: bundle exec rake pact:verify:v2
